@@ -74,8 +74,8 @@ jobs:
         key: ${{ secrets.VM_SSH }}
         script: |
           pwd
-          ls -la
-          cd /home/azureuser
+          cd /home/azureuser/lightspeed-AI-Challenge
+          ls
           git pull origin main
           npm install
           node app.js
