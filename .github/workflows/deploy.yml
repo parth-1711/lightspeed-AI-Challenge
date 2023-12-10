@@ -40,7 +40,7 @@
 #           npm install
 #           pm2 start npm --start
 
-name: Deploy to VM
+name: Node.js CI/CD with SSH Deployment
 
 on:
   push:
@@ -52,27 +52,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Deploy to VM
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VM_IP }}
-          username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.VM_SSH }}
-          script: |
-            # Commands to deploy your Node.js app on the VM
-            cd 
-            git pull origin main  # Update your code from the repository
-            npm install          # Install any new dependencies
-            node app.js         # Start your Node.js app
+    - name: Build
+      run: npm run build
 
+    - name: Deploy to VM
+      uses: appleboy/ssh-action@v0.4.0
+      with:
+        host: ${{ secrets.VM_IP }}
+        username: ${{ secrets.VM_USERNAME }}
+        key: ${{ secrets.VM_SSH }}
+        script: |
+          cd 
+          git pull origin main
+          npm install
+          node app.js
