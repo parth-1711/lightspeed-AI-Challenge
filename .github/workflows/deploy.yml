@@ -62,7 +62,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
+      
     - name: Build
       run: npm run build --if-present
 
@@ -75,6 +75,7 @@ jobs:
         script: |
           pwd
           ls -la
+          cd /home/azureuser
           git pull origin main
           npm install
           node app.js
