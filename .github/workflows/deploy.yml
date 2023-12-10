@@ -36,6 +36,7 @@ jobs:
         username: ${{ secrets.VM_USERNAME }}
         script: |
           # pm2 delete all
+          pkill -9 node
           cd /home/azureuser/lightspeed-AI-Challenge
           git pull
           npm install
