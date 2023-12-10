@@ -30,7 +30,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Notification on Timeout
-      if: failure() && failureReason == 'timeout'
+      if: failure()
       run: echo "Deployment timed out! Check the workflow logs for details."
 
     - name: SSH Remote Commands
