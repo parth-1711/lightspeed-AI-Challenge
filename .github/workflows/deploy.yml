@@ -67,7 +67,7 @@ jobs:
       run: npm run build
 
     - name: Deploy to VM
-      uses: appleboy/ssh-action@v0.4.0
+      uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.VM_IP }}
         username: ${{ secrets.VM_USERNAME }}
