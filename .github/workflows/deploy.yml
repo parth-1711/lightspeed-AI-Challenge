@@ -41,7 +41,7 @@ jobs:
           git pull
           npm install
           # pm2 start npm --start
-          sudo node app.js
+          npm start
 
 # name: Node.js CI/CD with SSH Deployment
 
