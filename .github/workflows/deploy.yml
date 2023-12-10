@@ -43,6 +43,9 @@ jobs:
           npm install
           # pm2 start npm --start
           npm start
+    - name: Notification on Timeout
+      if: failure() && failureReason == 'timeout'
+      run: echo "Deployment timed out! Check the workflow logs for details."
 
 # name: Node.js CI/CD with SSH Deployment
 
