@@ -35,11 +35,12 @@ jobs:
         host: ${{ secrets.VM_IP }}
         username: ${{ secrets.VM_USERNAME }}
         script: |
-          pm2 delete all
+          # pm2 delete all
           cd /home/azureuser/lightspeed-AI-Challenge
           git pull
           npm install
-          pm2 start npm --start
+          # pm2 start npm --start
+          node app.js
 
 # name: Node.js CI/CD with SSH Deployment
 
