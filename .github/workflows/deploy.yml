@@ -40,7 +40,7 @@ jobs:
           git pull
           npm install
           # pm2 start npm --start
-          node app.js
+          sudo node app.js
 
 # name: Node.js CI/CD with SSH Deployment
 
