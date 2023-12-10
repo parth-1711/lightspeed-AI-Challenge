@@ -7,7 +7,7 @@ const app=express();
 // app.use(bodyParser.json());
 
 app.get('/sayHello',(req,res)=>{
-    res.json({message:"Hello User  ."})
+    res.json({message:"Hello User."})
 })
 
 app.listen(80,()=>{
