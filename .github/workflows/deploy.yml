@@ -79,4 +79,4 @@ jobs:
           ls
           git pull origin main
           npm install
-          node app.js
+          sudo node app.js
