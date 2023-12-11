@@ -46,7 +46,7 @@ jobs:
           git pull
           npm install
           # pm2 start npm --start
-          npm start
+          npm --start
         if: failure()
         run: echo "Deployment timed out! Check the workflow logs for details."
    
